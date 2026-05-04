@@ -6,3 +6,9 @@ if (0 == 0 ){
     console.log("Hello");
 
 }
+
+if (0 === 0 ){
+
+    console.log("Hello");
+
+}
