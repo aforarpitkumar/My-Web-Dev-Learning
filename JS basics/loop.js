@@ -49,5 +49,19 @@ console.log(array2)
 
 
 
+var dfg =[];
 
+array1.forEach(element => {
+
+    if ( element == 6){
+
+        return;
+
+    }
+
+dfg.push(element);
+    
+});
+
+console.log(dfg);
 
