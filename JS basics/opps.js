@@ -38,12 +38,16 @@ console.log(newConstructorObject.parameter1);
 console.log(newConstructorObject.parameter2);
 
 // Prototypal Inheritance added on the class which was declered using constructor function
-
+// this function will return a string that the vechile is stopping
 Vechile.prototype.stop = function() {
     return this.maker + " " + this.model + " is stopping";
 };
 
 console.log(Bike.stop());
+
+// use of prototype is to add new properties and methods to the existing class without modifying the original class definition. 
+// It allows us to extend the functionality of a class without changing its structure, 
+// which is particularly useful when we want to add features to built-in objects or when we want to share methods across multiple instances of a class.
 
 class Car extends Vechile {
 
@@ -53,11 +57,15 @@ class Car extends Vechile {
         this.year = year;
     }
 
+    // this function will tell the details of the car like its year, maker and model
+
     getCarDetails() {
         return "My car is a " + this.year + " " + this.maker + " " + this.model;
     }   
 
 }
+
+// this is an object of the Car class which is a child class of the Vechile class and it will have all the properties and methods of the Vechile class as well as its own properties and methods
 
 let myCar = new Car("Honda", "Civic", 2020);
 
