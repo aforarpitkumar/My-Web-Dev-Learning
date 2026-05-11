@@ -71,4 +71,42 @@ let myCar = new Car("Honda", "Civic", 2020);
 
 console.log(myCar.getCarDetails());
 
+// example of encapsulation in JS using private fields 
+// #balance is a private field which can only be accessed within the class and not outside the class
+
+class BankAccount {
+
+    #balance = 0;
+
+    constructor(accountNumber, accountHolderName) {
+        this.accountNumber = accountNumber;
+        this.accountHolderName = accountHolderName;
+    }
+
+    deposit(amount) {
+        this.#balance += amount;
+        return "Deposit successful. New balance: " + this.#balance;
+    }
+
+    withdraw(amount) {
+        if (amount > this.#balance) {
+            return "Insufficient funds. Current balance: " + this.#balance;
+        } else {
+            this.#balance -= amount;
+            return "Withdrawal successful. New balance: " + this.#balance;
+        }
+    }
+
+    getAccountDetails() {
+        return "Account Number: " + this.accountNumber + ", Account Holder: " + this.accountHolderName + ", Balance: " + this.#balance;
+    }
+}
+
+let myAccount = new BankAccount("123456789", "Arpit Kumar");
+
+console.log(myAccount.getAccountDetails());
+console.log(myAccount.deposit(2000));
+console.log(myAccount.withdraw(3000));
+console.log(myAccount.withdraw(5000));
+
 
