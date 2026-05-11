@@ -125,4 +125,79 @@ console.log(myAccount2.deposit(5000));
 console.log(myAccount2.withdraw(2000));
 console.log(myAccount2.getAccountDetails());
 
+console.log("its time to explore abstraction in JS using classes and methods");
+
+
+// example of abstraction in JS using classes and methods
+// abstraction is the process of hiding the implementation details and showing only the functionality to the user. 
+// it allows us to focus on what an object does instead of how it does it.      
+
+class coffeMachine {
+
+    constructor(coffeType, waterLevel) {
+        this.coffeType = coffeType;
+        this.waterLevel = waterLevel;
+    }
+
+    makeCoffe() {
+        if (this.waterLevel > 0) {
+            this.waterLevel -= 1;
+            return "Making " + this.coffeType + " coffe. Water level is now: " + this.waterLevel;
+        } else {
+            return "Cannot make coffe. Water level is too low.";
+        }
+    }
+
+    refillWater(amount) {
+        this.waterLevel += amount;
+        return "Water refilled. Current water level: " + this.waterLevel;
+    }
+
+    makeCoffieBro(WaterLevel) {
+
+        let coffiemakingfunction = this.makeCoffe();
+        let waterRefillFunction = this.refillWater(WaterLevel);
+
+        return coffiemakingfunction + " " + waterRefillFunction + " " + "Coffie Ready Bro!";
+
+    }
+}   
+
+let myCoffeMachine = new coffeMachine("Espresso", 2);
+
+console.log(myCoffeMachine.makeCoffieBro(3));
+
+console.log("its time to explore polymorphism in JS using method overriding");
+
+// example of polymorphism in JS using method overriding
+// polymorphism is the ability of an object to take on many forms. 
+// it allows us to use a single interface to represent different types of objects. 
+// method overriding is a feature of polymorphism that allows a subclass to provide a specific implementation of a method that is already defined in its superclass.            
+
+class Bird {
+
+    constructor(name, color) {
+        this.name = name;
+        this.color = color;
+    }
+
+    fly() {
+        return this.name + " is flying";
+    }                                       
+
+}
+
+class Sparrow extends Bird {        
+
+    fly() {
+        return this.name + " is flying at a low altitude";
+    }
+
+}
+
+let mySparrow = new Sparrow("JackSparrow", "Brown");
+console.log(mySparrow.fly());
+
+let Parrot = new Bird("Polly Parrot", "Green");
+console.log(Parrot.fly());
 
